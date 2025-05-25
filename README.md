@@ -1,39 +1,105 @@
-# Compressive Strength Prediction for Ceramic Waste Concrete
+# 🧱 Predicting Compressive Strength of Ceramic Waste Concrete using Machine Learning
 
-This project focuses on predicting the compressive strength of ceramic waste concrete using machine learning techniques. The dataset used contains various features related to ceramic concrete properties, and the goal is to predict its compressive strength. Multiple regression models have been evaluated, and the best-performing model has been saved for future deployment.
+This project explores the application of machine learning to predict the compressive strength of concrete incorporating **ceramic waste powder** as a partial cement replacement. This initiative contributes to sustainable construction practices by reducing cement usage and reusing industrial ceramic waste.
 
-## 🧠 Project Overview
+---
 
-In this project, various regression models are trained and evaluated to predict the compressive strength of ceramic waste concrete. The models considered include:
+## 📊 Problem Statement
 
-- **Linear Regression**
-- **Decision Tree Regressor**
-- **Random Forest Regressor**
-- **AdaBoost Regressor**
-- **Support Vector Regressor (SVR)**
+Traditional concrete production has high environmental costs due to cement manufacturing. By replacing a portion of cement with ceramic waste powder, we aim to:
 
-The project includes comprehensive exploratory data analysis (EDA), feature importance analysis, model evaluation using RMSE, MAE, and R², and model selection based on performance.
+- **Improve sustainability**
+- **Maintain structural integrity**
+- **Predict compressive strength accurately using ML**
 
-## 📊 Key Features
+---
 
-- **Exploratory Data Analysis (EDA)**: Understanding data distributions, correlations, and missing values.
-- **Model Evaluation**: Comparison of models based on performance metrics (RMSE, MAE, R²).
-- **Visualization**: Includes plots for feature importance and actual vs predicted values.
-- **Cross-Validation**: Used for better model assessment.
-- **Best Model Selection**: Saved the best-performing model for future deployment.
+## 📁 Dataset Description
 
-## ⚙️ Prerequisites
+The dataset used contains the following features:
 
-Before running the project, ensure you have the following installed:
+| Feature              | Description                             |
+|----------------------|-----------------------------------------|
+| Cement               | Cement content (kg/m³)                  |
+| CeramicWastePowder   | Recycled ceramic waste (kg/m³)          |
+| FineAggregate        | Sand content (kg/m³)                    |
+| CoarseAggregate      | Gravel content (kg/m³)                  |
+| Water                | Water content (kg/m³)                   |
+| CompressiveStrength  | Target variable (MPa)                   |
 
-- Python 3.x
-- Pandas
-- NumPy
-- Scikit-Learn
-- Matplotlib
-- Seaborn
+Additional engineered features:
 
-You can install the necessary dependencies using `pip`:
+- `WaterCementRatio`, `TotalAggregate`, `CementContent`, `LogCompressiveStrength`
 
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn
+---
+
+## 🧠 ML Pipeline
+
+### 🔧 Preprocessing:
+- Feature Engineering
+- Log Transformation on Target
+- Standardization + Power Transformation (Yeo-Johnson)
+
+### 📈 Models Used:
+- Linear Models: `Ridge`, `Lasso`, `ElasticNet`
+- Ensemble Models: `Random Forest`, `Gradient Boosting Regressor`
+
+### 📊 Evaluation Metrics:
+- RMSE, MAE, R² Score
+- Cross-validation scores
+- SHAP for model explainability
+
+---
+
+## 📌 Key Results
+
+| Model                     | R² Score | RMSE  | MAE   |
+|--------------------------|----------|-------|-------|
+| Gradient Boosting        | **0.96** | 1.75  | 1.12  |
+| Random Forest            | 0.95     | 1.92  | 1.24  |
+| Ridge Regression         | 0.93     | 2.15  | 1.36  |
+
+> 🚀 Best performance achieved with **Gradient Boosting Regressor**
+
+---
+
+## 📉 SHAP Analysis
+
+We used SHAP (SHapley Additive exPlanations) to interpret model predictions and understand feature contributions:
+
+- `Cement`, `CeramicWastePowder`, and `WaterCementRatio` were key drivers of compressive strength.
+
+![SHAP Summary Plot](output/plots/shap_summary.jpg)
+
+---
+
+## 🛠 Tech Stack
+
+- Python
+- Pandas, NumPy
+- Scikit-learn
+- SHAP
+- Matplotlib, Seaborn
+
+---
+
+## 🌱 Future Improvements
+
+- Add Deep Learning model (e.g., MLP Regressor)
+- Hyperparameter tuning with Optuna
+- Web-based prediction interface using Flask/Streamlit
+
+---
+
+## 🙋‍♂️ Author
+
+**[Your Name]**  
+B.Tech | Ceramic Engineering | NIT Rourkela  
+[GitHub](https://github.com/yourusername) | [LinkedIn](https://linkedin.com/in/yourprofile)
+
+---
+
+## 📄 License
+
+This project is open source under the [MIT License](LICENSE).
+
