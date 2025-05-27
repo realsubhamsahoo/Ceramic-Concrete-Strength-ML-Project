@@ -1,6 +1,0 @@
-5-Fold Cross-Validation R² Scores:
-Linear Regression: R2 = -0.107 ± 0.475
-Decision Tree: R2 = -0.725 ± 0.981
-Random Forest: R2 = -0.032 ± 0.400
-AdaBoost: R2 = -0.413 ± 0.878
-Support Vector Regressor: R2 = -1.844 ± 2.413
