@@ -1,0 +1,23 @@
+data_source:
+  path: data/cleaned_concrete_data.csv
+
+model:
+  path: artifacts/final_model_catboost.pkl
+
+prediction:
+  input_schema:
+    required_features:
+      - cement
+      - flyash
+      - ggbs
+      - mk
+      - water
+      - water_tcm
+      - sp
+      - vma
+      - nca_20_down
+      - nca_10_down
+      - rca_20_down
+      - rca_10_down
+      - sand
+      - age
